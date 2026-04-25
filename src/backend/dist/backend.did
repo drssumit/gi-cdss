@@ -1,0 +1,29 @@
+type Time = int;
+type PatientSession = 
+ record {
+   answers: vec record {
+                  nat;
+                  text;
+                };
+   completedAt: opt Time;
+   doctorId: principal;
+   id: nat;
+   language: text;
+ };
+type Doctor = 
+ record {
+   clinic: text;
+   email: text;
+   name: text;
+   "principal": principal;
+ };
+service : {
+  answerQuestion: (sessionId: nat, questionId: nat, answer: text) -> ();
+  completeSession: (sessionId: nat) -> ();
+  createPatientSession: (doctorId: principal, language: text) -> (nat);
+  getAllDoctors: () -> (vec Doctor) query;
+  getDoctor: (doctorId: principal) -> (Doctor) query;
+  getPatientSession: (sessionId: nat) -> (PatientSession) query;
+  getSessionsByDoctor: (doctorId: principal) -> (vec PatientSession) query;
+  registerDoctor: (name: text, clinic: text, email: text) -> ();
+}

@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('/assets/fonts/Outfit.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/assets/fonts/Fraunces.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark navy theme - GI-ASSIST */
+    --background: 0.13 0.035 248;
+    --foreground: 0.94 0.015 248;
+    --card: 0.17 0.04 248;
+    --card-foreground: 0.94 0.015 248;
+    --popover: 0.17 0.04 248;
+    --popover-foreground: 0.94 0.015 248;
+    --primary: 0.72 0.14 176;
+    --primary-foreground: 0.1 0.03 248;
+    --secondary: 0.22 0.04 248;
+    --secondary-foreground: 0.94 0.015 248;
+    --muted: 0.2 0.035 248;
+    --muted-foreground: 0.62 0.025 248;
+    --accent: 0.72 0.14 176;
+    --accent-foreground: 0.1 0.03 248;
+    --destructive: 0.62 0.22 27;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.28 0.045 248;
+    --input: 0.22 0.04 248;
+    --ring: 0.72 0.14 176;
+    --chart-1: 0.72 0.14 176;
+    --chart-2: 0.65 0.18 210;
+    --chart-3: 0.58 0.16 150;
+    --chart-4: 0.75 0.12 60;
+    --chart-5: 0.7 0.15 300;
+    --sidebar: 0.15 0.035 248;
+    --sidebar-foreground: 0.94 0.015 248;
+    --sidebar-primary: 0.72 0.14 176;
+    --sidebar-primary-foreground: 0.1 0.03 248;
+    --sidebar-accent: 0.22 0.04 248;
+    --sidebar-accent-foreground: 0.94 0.015 248;
+    --sidebar-border: 0.28 0.045 248;
+    --sidebar-ring: 0.72 0.14 176;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-gradient-teal {
+    background: linear-gradient(135deg, oklch(0.72 0.14 176), oklch(0.65 0.18 210));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-glow {
+    box-shadow: 0 0 0 1px oklch(0.28 0.045 248), 0 8px 32px oklch(0.1 0.03 248 / 0.6);
+  }
+
+  .teal-glow {
+    box-shadow: 0 0 20px oklch(0.72 0.14 176 / 0.3);
+  }
+}

@@ -1,0 +1,37 @@
+// Version: 1.0.0
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Doctor__322314920 =
+  {clinic : Text; email : Text; name : Text; principal : Principal};
+type Int__270357528 = Int__616954475;
+type Int__616954475 = Int;
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type PatientSession__859020953 =
+  {
+    answers : [(Nat, Text)];
+    completedAt : ?Time__900049286;
+    doctorId : Principal;
+    id : Nat;
+    language : Text
+  };
+type Time__796480547 = Int__270357528;
+type Time__900049286 = Time__796480547;
+actor {
+  stable doctors :
+    {
+      var root : Node__46230540<Principal, Doctor__322314920>;
+      var size : Nat__490723111
+    };
+  stable var nextPatientSessionId : Nat;
+  stable patientSessions :
+    {
+      var root : Node__46230540<Nat, PatientSession__859020953>;
+      var size : Nat__490723111
+    }
+};
